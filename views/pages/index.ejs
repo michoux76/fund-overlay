@@ -8,7 +8,12 @@
   <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-  <div id="app">{{counter}}{{count}}</div>
+  <div id="app">
+    <h1>
+      $ {{count.references.counts.amount_raised_unattributed}}
+    </h1>
+    <h2>{{count.references.counts.total_donations}} donations</h2>
+  </div>
   <script src="//unpkg.com/vue/dist/vue.global.prod.js"></script>
   <script src="//unpkg.com/vue-router/dist/vue-router.global.prod.js"></script>
   <script src="//unpkg.com/bootstrap/dist/js/bootstrap.js"></script>
