@@ -5,7 +5,9 @@ var formatter = new Intl.NumberFormat('en-US', {
 app = Vue.createApp({
     data() {
         return {
-            count: {}
+            count: {},
+            rate: 15000,
+            timeout: ''
         }
     },
     computed: {
@@ -24,8 +26,8 @@ app = Vue.createApp({
         const response = await fetch("/count");
         const data = await response.json();
         this.count = data
-        setInterval(()=>{
+        this.timeout = setInterval(()=>{
             this.updateCounter()
-        },5000)
+        },this.rate)
     }
 }).mount('#app')
