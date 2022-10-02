@@ -8,11 +8,9 @@ app = Vue.createApp({
             count: {}
         }
     },
-    methods: {
-        async counter() {
-            const response = await fetch("/count");
-            const data = await response.json();
-            return data
+    computed: {
+        counter: function() {
+            return formatter.format(this.count.references.counts.amount_raised_unattributed)
         }
     },
     async created () {
