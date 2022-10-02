@@ -13,9 +13,19 @@ app = Vue.createApp({
             return formatter.format(this.count.references.counts.amount_raised_unattributed)
         }
     },
+    methods: {
+        async updateCounter() {
+            const response = await fetch("/count");
+            const data = await response.json();
+            this.count = data
+        }
+    },
     async created () {
         const response = await fetch("/count");
         const data = await response.json();
         this.count = data
+        setInterval(()=>{
+            this.updateCounter()
+        },5000)
     }
 }).mount('#app')
