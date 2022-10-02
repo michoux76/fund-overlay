@@ -6,13 +6,13 @@ app = Vue.createApp({
     },
     methods: {
         async counter() {
-            const response = await fetch("https://api.npms.io/v2/search?q=vue");
+            const response = await fetch("/count");
             const data = await response.json();
             return data
         }
     },
     async created () {
-        const response = await fetch("https://api.npms.io/v2/search?q=vue");
+        const response = await fetch("/count");
         const data = await response.json();
         this.count = data
     }
